@@ -1,10 +1,9 @@
 {
-  "name": "base-website",
+  "name": "typescriptaday.com",
   "version": "0.1.0",
   "main": "index.js",
-  "repository": "https://github.com/kenhowardpdx/base-website.git",
+  "repository": "https://github.com/typescriptaday/typescriptaday.com.git",
   "author": "Ken Howard <ken@simplicatedweb.com>",
-  "license": "MIT",
   "scripts": {
     "build": "tsc -p server",
     "serve": "onchange './server/**/*' -i -- yarn start",
