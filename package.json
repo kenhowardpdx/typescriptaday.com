@@ -1,0 +1,45 @@
+{
+  "name": "base-website",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "https://github.com/kenhowardpdx/base-website.git",
+  "author": "Ken Howard <ken@simplicatedweb.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p server",
+    "serve": "onchange './server/**/*' -i -- yarn start",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "confidence": "^3.0.2",
+    "dotenv": "^4.0.0",
+    "glue": "^4.1.0",
+    "good": "^7.1.0",
+    "good-winston": "^4.0.0",
+    "handlebars": "^4.0.6",
+    "hapi": "^16.1.1",
+    "hapi-decorators": "^0.4.3",
+    "inert": "^4.2.0",
+    "joi": "^10.4.1",
+    "jsonwebtoken": "^7.3.0",
+    "sequelize": "^3.30.4",
+    "vision": "^4.1.1",
+    "visionary": "^6.0.2",
+    "winston": "^2.3.1",
+    "winston-daily-rotate-file": "^1.4.6"
+  },
+  "devDependencies": {
+    "@types/confidence": "^1.4.30",
+    "@types/dotenv": "^2.0.20",
+    "@types/hapi": "^16.0.3",
+    "@types/hapi-decorators": "^0.4.3",
+    "@types/inert": "^4.2.0",
+    "@types/joi": "^10.3.0",
+    "@types/jsonwebtoken": "^7.2.0",
+    "@types/node": "^7.0.13",
+    "@types/sequelize": "^4.0.51",
+    "@types/winston": "^2.3.1",
+    "onchange": "^3.2.1",
+    "typescript": "^2.2.2"
+  }
+}
