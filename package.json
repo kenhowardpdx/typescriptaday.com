@@ -10,6 +10,7 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
     "confidence": "^3.0.2",
     "dotenv": "^4.0.0",
     "glue": "^4.1.0",
