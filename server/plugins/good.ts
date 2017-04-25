@@ -1,9 +1,7 @@
-// libs
 import * as hapi from 'hapi';
-require('good-winston'); // do this before using a winston reporter
-
-// app
 import logger from '../logger';
+
+const good = require('good');
 
 export function register(server: hapi.Server, options, next) {
     server.register({
@@ -12,12 +10,11 @@ export function register(server: hapi.Server, options, next) {
             reporters: {
                 winston: [{
                     module: 'good-winston',
-                    args: [logger, {
-                        error_level: 'error',
-                        ops_level: 'debug',
-                        request_level: 'debug',
-                        response_level: 'info',
-                        other_level: 'info'
+                    args: [{
+                      winston: logger,
+                      level: {
+                        request: 'debug'
+                      }
                     }]
                 }]
             }

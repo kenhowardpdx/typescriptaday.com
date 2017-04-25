@@ -26,7 +26,7 @@ manifest = {
         },
         {
             plugin: {
-                register: './plugins/logger'
+                register: './plugins/good'
             }
         },
         {
