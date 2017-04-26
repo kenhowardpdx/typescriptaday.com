@@ -1,4 +1,4 @@
-import { BOOLEAN, STRING, DATE, INTEGER, DefineAttributes, DefineOptions, DataTypes, Sequelize, Model } from 'sequelize';
+import { BOOLEAN, STRING, DATE, INTEGER, DefineAttributes, DefineOptions, DataTypes, Sequelize, Model, CreateOptions } from 'sequelize';
 import { compareSync, hashSync, genSaltSync } from 'bcrypt-nodejs';
 import { randomBytes } from 'crypto';
 
@@ -22,6 +22,18 @@ const options: DefineOptions<UserInstance> = {
       'LastName'
     ]
   },
+  scopes: {
+    private: {
+      attributes: [
+        'Password'
+      ]
+    }
+  },
+  hooks: {
+    beforeCreate: function beforeCreateFn(user: UserInstance, options: CreateOptions) {
+      user.setPassword(user.get('Password'));
+    }
+  },
   instanceMethods: {
 
     setPassword: function setPasswordFn(password: string) {
@@ -35,8 +47,6 @@ const options: DefineOptions<UserInstance> = {
       const encrypted = hashSync(password, salt);
 
       self.setDataValue('Password', encrypted);
-
-      return self.save();
     },
 
     validPassword: function validPasswordFn(password: string) {
@@ -44,7 +54,9 @@ const options: DefineOptions<UserInstance> = {
       return compareSync(password, self.getDataValue('Password'));
     }
 
-  }
+  },
+  updatedAt: 'UpdatedAt',
+  createdAt: 'CreatedAt'
 }
 
 function associate(model: Model<UserInstance, UserAttributes>, db: Sequelize) {

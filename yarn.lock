@@ -6,6 +6,12 @@
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/@types/bluebird/-/bluebird-3.5.2.tgz#ecf1104217495e50fe0b588d538146cd6f733b89"
 
+"@types/boom@^4.3.1":
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/@types/boom/-/boom-4.3.1.tgz#840c27e041106b1fc0b14e7244f4084fb3d7c558"
+  dependencies:
+    "@types/node" "*"
+
 "@types/confidence@^1.4.30":
   version "1.4.30"
   resolved "https://registry.yarnpkg.com/@types/confidence/-/confidence-1.4.30.tgz#031690491e443d0c6795842235221ad993b33629"
@@ -246,7 +252,7 @@ boom@3.x.x:
   dependencies:
     hoek "4.x.x"
 
-boom@4.x.x:
+boom@4.x.x, boom@^4.0.0, boom@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/boom/-/boom-4.3.1.tgz#4f8a3005cb4a7e3889f749030fd25b96e01d2e31"
   dependencies:
@@ -417,6 +423,10 @@ content@3.x.x:
   resolved "https://registry.yarnpkg.com/content/-/content-3.0.3.tgz#000f8a01371b95c66afe99be9390fa6cb91aa87a"
   dependencies:
     boom "4.x.x"
+
+cookie@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
 
 core-util-is@~1.0.0:
   version "1.0.2"
@@ -780,6 +790,14 @@ handlebars@^4.0.6:
   optionalDependencies:
     uglify-js "^2.6"
 
+hapi-auth-jwt2@^7.2.4:
+  version "7.2.4"
+  resolved "https://registry.yarnpkg.com/hapi-auth-jwt2/-/hapi-auth-jwt2-7.2.4.tgz#5d77f63bafacda7a381aefe855f1683bc8641081"
+  dependencies:
+    boom "^4.0.0"
+    cookie "^0.3.1"
+    jsonwebtoken "^7.1.9"
+
 hapi-decorators@^0.4.3:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/hapi-decorators/-/hapi-decorators-0.4.3.tgz#00ac2c0f1c558198b4e1caa18a798a199570ad4a"
@@ -1093,7 +1111,7 @@ jsonify@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
 
-jsonwebtoken@^7.3.0:
+jsonwebtoken@^7.1.9, jsonwebtoken@^7.3.0:
   version "7.3.0"
   resolved "https://registry.yarnpkg.com/jsonwebtoken/-/jsonwebtoken-7.3.0.tgz#85118d6a70e3fccdf14389f4e7a1c3f9c8a9fbba"
   dependencies:
@@ -1474,17 +1492,13 @@ oauth-sign@~0.8.1:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
 
-object-assign@4.1.0:
+object-assign@4.1.0, object-assign@^4.0.1, object-assign@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.0.tgz#7a3b3d0e98063d43f4c03f2e8ae6cd51a86883a0"
 
 object-assign@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-3.0.0.tgz#9bedd5ca0897949bca47e7ff408062d549f587f2"
-
-object-assign@^4.0.1, object-assign@^4.1.0:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
 
 object.omit@^2.0.0:
   version "2.0.1"

@@ -1,7 +1,10 @@
 import { IRouteConfiguration } from 'hapi';
 import { Controller } from 'hapi-decorators';
+import * as boom from 'boom';
 
 export class BaseApiController implements Controller {
+
+  errorResponse = boom;
 
   constructor() {
     this.baseUrl = `/api${this.baseUrl}`;

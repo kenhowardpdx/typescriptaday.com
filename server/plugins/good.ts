@@ -1,9 +1,9 @@
-import * as hapi from 'hapi';
+import { Server } from 'hapi';
 import logger from '../logger';
 
 const good = require('good');
 
-export function register(server: hapi.Server, options, next) {
+export function register(server: Server, options, next) {
     server.register({
         register: require('good'),
         options: {

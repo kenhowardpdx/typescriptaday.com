@@ -1,7 +1,7 @@
 import { Instance, Model } from 'sequelize';
 
 export interface UserAttributes {
-  Active: boolean;
+  Active?: boolean;
   Email: string;
   FirstName?: string;
   LastName?: string;

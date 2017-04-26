@@ -31,6 +31,11 @@ manifest = {
         },
         {
             plugin: {
+                register: './plugins/auth'
+            }
+        },
+        {
+            plugin: {
                 register: './plugins/routes',
                 options: config.get('/routes')
             }
