@@ -1,5 +1,6 @@
 import { Server, Request } from 'hapi';
 import * as jwt from 'jsonwebtoken';
+import logger from '../services/logger';
 
 export function register(server: Server, options, next) {
     server.register(require('hapi-auth-jwt2'));
@@ -21,6 +22,13 @@ register['attributes'] = {
 function validate(decoded, request: Request, callback) {
 
     const { email, name } = decoded.sub;
+    const valid = !!email;
 
-    return callback(null, !!email, decoded.sub);
+    if (valid) {
+      logger.info(`Authenticated user: ${email}`);
+    } else {
+      logger.info('Invalid auth attempt');
+    }
+
+    return callback(null, valid, decoded.sub);
 };

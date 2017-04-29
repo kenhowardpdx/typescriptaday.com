@@ -1,5 +1,5 @@
 import { Server } from 'hapi';
-import logger from '../logger';
+import logger from '../services/logger';
 
 const good = require('good');
 

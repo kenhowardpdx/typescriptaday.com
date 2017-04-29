@@ -60,7 +60,7 @@ const options: DefineOptions<UserInstance> = {
 }
 
 function associate(model: Model<UserInstance, UserAttributes>, db: Sequelize) {
-  // not implemented
+  model.hasOne(db.models['AuthToken'], { as: 'AuthToken', foreignKey: 'UserId' });
 }
 
 export const User = {
