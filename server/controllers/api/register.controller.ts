@@ -1,5 +1,5 @@
 import { Request, IReply } from 'hapi';
-import { controller, get, post, validate } from 'hapi-decorators';
+import { controller, get, post, validate, config } from 'hapi-decorators';
 import * as Joi from 'joi';
 import * as jwt from 'jsonwebtoken';
 import { BaseApiController } from './base.controller';
@@ -29,6 +29,8 @@ export class RegisterApiController extends BaseApiController {
     let user: UserInstance;
     let authToken: AuthTokenInstance;
     let token: string;
+
+    const urlBase = `${process.env.BASE_URL}/api/register?token=`;
     
     try {
       user = await _dbContext.User.create({ Email: email, FirstName: firstName, LastName: lastName, Password: password });
@@ -47,7 +49,18 @@ export class RegisterApiController extends BaseApiController {
       delete json.Password;
 
       // send email
-      await sendMail([email], 'Account Information', 'You just created an account', '<h1>Account Information</h1> ' + token);
+      await sendMail(
+        [email],
+        'Confirm Email',
+        `Thank you for signing up for TypeScript A Day.
+        Please confirm your email address (${email}) by clicking this link:
+        ${urlBase}${token}
+        `,
+        `<h1>Confirm Email</h1>
+        <p>Thank you for signing up for TypeScript A Day.</p>
+        <p>Please confirm your email address (${email}) by clicking this link:</p>
+        <p><a href="${urlBase}${token}">Confirm Email Address</a></p>
+        `);
 
       reply(this.apiResponse(json));
     } catch (error) {
@@ -65,13 +78,25 @@ export class RegisterApiController extends BaseApiController {
       token: Joi.string().required()
     })
   })
+  @config({
+    response: {
+      emptyStatusCode: 204
+    }
+  })
   async confirm(request: Request, reply: IReply) {
     const { token } = request.query;
     let user: UserInstance;
     let authToken: AuthTokenInstance;
 
     try {
-      authToken = await _dbContext.AuthToken.findOne({ where: { Token: token, ValidUntil: { $gt: new Date() } }, include: [{ all: true }] });
+      authToken = await _dbContext.AuthToken.findOne({
+        where: {
+          Token: token,
+          TokenType: TokenType[TokenType.Registration],
+          ValidUntil: { $gt: new Date() }
+        }
+      });
+
       if (!authToken) {
         return reply(this.errorResponse.forbidden());
       }
@@ -79,8 +104,7 @@ export class RegisterApiController extends BaseApiController {
 
       await user.update({ Active: true }, { fields: ['Active'] }); // The user has confirmed their email address
       await authToken.destroy(); // The token is not needed anymore
-
-      reply(this.apiResponse(user));
+      reply(undefined); // response status code 204 (no content)
     } catch (error) {
         reply(this.errorResponse.create(500, error.message));
     }
