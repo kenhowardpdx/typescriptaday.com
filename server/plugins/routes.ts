@@ -1,13 +1,14 @@
-import { Server } from 'hapi';
+import { Server, Request, IReply } from 'hapi';
 import * as Controllers from '../controllers';
 
 export const register: any = function register(server: Server, options, next) {
+
   server.route({
     method: 'GET',
-    path: '/javascripts/{param*}',
+    path: '/{param*}',
     handler: {
       directory: {
-        path: './javascripts',
+        path: './',
         redirectToSlash: true,
         listing: true
       }
@@ -16,14 +17,23 @@ export const register: any = function register(server: Server, options, next) {
 
   server.route({
     method: 'GET',
-    path: '/stylesheets/{param*}',
+    path: '/dashboard/{param*}',
     handler: {
       directory: {
-        path: './stylesheets',
-        redirectToSlash: true,
-        listing: true
+        path: './dashboard',
+        listing: false,
+        index: ['index.html']
       }
     }
+  });
+
+  server.ext('onPostHandler', (request: Request, reply: IReply) => {
+    const response = request.response;
+    const isDashboard = request.path.startsWith('/dashboard');
+    if (isDashboard && response.isBoom && response['output'].statusCode === 404) {
+      return reply.file('../public/dashboard/index.html');
+    }
+    return reply.continue();
   });
 
   for (let controllerKey in Controllers) {
