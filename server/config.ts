@@ -13,7 +13,7 @@ const options = {
     port: process.env.PORT || 5000,
     routes: {
       files: {
-        relativeTo: path.join(__dirname, '..', 'public')
+        relativeTo: path.join(__dirname, 'public')
       },
       cors: {
         origin: [process.env.CORS_ORIGIN || 'http://localhost:5000']

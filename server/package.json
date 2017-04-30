@@ -5,7 +5,7 @@
   "repository": "https://github.com/typescriptaday/typescriptaday.com.git",
   "author": "Ken Howard <ken@simplicatedweb.com>",
   "scripts": {
-    "build": "tsc -p server",
+    "build": "tsc",
     "serve": "nodemon --debug ./index.js",
     "start": "node index.js"
   },

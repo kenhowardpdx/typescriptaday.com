@@ -10,7 +10,7 @@
             "name": "Launch Program",
             "program": "${workspaceRoot}/server/index.ts",
             "outFiles": [],
-            "cwd": "${workspaceRoot}",
+            "cwd": "${workspaceRoot}/server",
             "sourceMaps": true
         },
         {
