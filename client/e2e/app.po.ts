@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class TypescriptpdxPage {
+export class TypeScriptADayPage {
   navigateTo() {
     return browser.get('/');
   }

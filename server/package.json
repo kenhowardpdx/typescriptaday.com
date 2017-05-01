@@ -1,6 +1,6 @@
 {
-  "name": "typescriptaday.com",
-  "version": "0.1.0",
+  "name": "typescriptaday-server",
+  "version": "0.0.0",
   "main": "index.js",
   "repository": "https://github.com/typescriptaday/typescriptaday.com.git",
   "author": "Ken Howard <ken@simplicatedweb.com>",

@@ -1,10 +1,10 @@
-import { TypescriptpdxPage } from './app.po';
+import { TypeScriptADayPage } from './app.po';
 
-describe('typescriptpdx App', () => {
-  let page: TypescriptpdxPage;
+describe('TypeScript A Day App', () => {
+  let page: TypeScriptADayPage;
 
   beforeEach(() => {
-    page = new TypescriptpdxPage();
+    page = new TypeScriptADayPage();
   });
 
   it('should display message saying app works', () => {
