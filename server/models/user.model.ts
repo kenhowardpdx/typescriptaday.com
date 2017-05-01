@@ -61,6 +61,7 @@ const options: DefineOptions<UserInstance> = {
 
 function associate(model: Model<UserInstance, UserAttributes>, db: Sequelize) {
   model.hasOne(db.models['AuthToken'], { as: 'AuthToken', foreignKey: 'UserId' });
+  model.belongsToMany(db.models['Course'], { as: 'Course', through: db.models['UserCourse'] });
 }
 
 export const User = {
