@@ -1,4 +1,13 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar>
+  <div fxFlex fxLayout="row">
+    <div fxFlex>
+      TypeScript A Day
+    </div>
+    <div fxFlex="30">
+      <a md-icon-button routerLink="."><md-icon>home</md-icon></a>
+      <a md-icon-button routerLink="./help"><md-icon>help</md-icon></a>
+    </div>
+  </div>
+</md-toolbar>
+
 <router-outlet></router-outlet>
