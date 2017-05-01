@@ -40,6 +40,6 @@ export default class Context {
 
   db: Sequelize.Sequelize;
 
-  AuthToken: Sequelize.Model<Models.AuthTokenInstance, Models.AuthTokenAttributes>;
+  AuthToken: Models.AuthTokenModel;
   User: Sequelize.Model<Models.UserInstance, Models.UserAttributes>;
 }

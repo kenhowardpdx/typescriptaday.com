@@ -14,3 +14,7 @@ export interface AuthTokenInstance extends Sequelize.Instance<AuthTokenAttribute
   setUser: Sequelize.HasOneSetAssociationMixin<UserInstance, number>;
   generateToken: () => string;
 }
+
+export interface AuthTokenModel extends Sequelize.Model<AuthTokenInstance, AuthTokenAttributes> {
+  generateToken: () => string;
+}

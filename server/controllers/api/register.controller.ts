@@ -31,19 +31,14 @@ export class RegisterApiController extends BaseApiController {
     let token: string;
 
     const urlBase = `${process.env.BASE_URL}/api/register?token=`;
-    
+
     try {
       user = await _dbContext.User.create({ Email: email, FirstName: firstName, LastName: lastName, Password: password });
-      authToken = _dbContext.AuthToken.build({ TokenType: TokenType[TokenType.Registration] });
+      token = _dbContext.AuthToken.generateToken();
+      authToken = await _dbContext.AuthToken.create({ Token: token, TokenType: TokenType[TokenType.Registration] });
 
       // set the user
-      authToken.setUser(user);
-
-      // generate the token
-      token = authToken.generateToken();
-
-      // save the token
-      await authToken.save();
+      await authToken.setUser(user);
 
       const json = user.toJSON();
       delete json.Password;

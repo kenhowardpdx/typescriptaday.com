@@ -10,16 +10,16 @@ import { TokenType, getKeys } from '../enums';
 import { AuthTokenInstance, AuthTokenAttributes } from './auth-token.model.d';
 
 const attributes: DefineAttributes = {
+  Id: { type: INTEGER, primaryKey: true, autoIncrement: true },
   Token: { type: STRING, allowNull: false },
   TokenType: { type: ENUM(...getKeys(TokenType)), allowNull: false },
   ValidUntil: { type: DATE, allowNull: false, defaultValue: literal('CURRENT_TIMESTAMP') }
 }
 
 const options: DefineOptions<any> = {
-  instanceMethods: {
-    generateToken: function generateTokenFn(this: AuthTokenInstance) {
+  classMethods: {
+    generateToken: function generateTokenFn() {
       let token = randomBytes(16).toString('hex');
-      this.set('Token', token);
       return token;
     }
   },
