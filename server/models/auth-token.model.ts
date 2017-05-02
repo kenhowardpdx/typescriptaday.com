@@ -10,7 +10,7 @@ import { TokenType, getKeys } from '../enums';
 import { AuthTokenInstance, AuthTokenAttributes } from './auth-token.model.d';
 
 const attributes: DefineAttributes = {
-  Id: { type: INTEGER, primaryKey: true, autoIncrement: true },
+  Id: { type: INTEGER, allowNull: false, primaryKey: true, autoIncrement: true },
   Token: { type: STRING, allowNull: false },
   TokenType: { type: ENUM(...getKeys(TokenType)), allowNull: false },
   ValidUntil: { type: DATE, allowNull: false, defaultValue: literal('CURRENT_TIMESTAMP') }

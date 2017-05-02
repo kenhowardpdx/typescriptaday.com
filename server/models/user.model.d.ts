@@ -18,7 +18,7 @@ export interface UserInstance extends Sequelize.Instance<UserAttributes> {
   setCourses: Sequelize.HasManySetAssociationsMixin<CourseInstance, number>;
   addCourses: Sequelize.HasManyAddAssociationsMixin<CourseInstance, number>;
   addCourse: Sequelize.HasManyAddAssociationMixin<CourseInstance, number>;
-  createCourse: Sequelize.HasManyCreateAssociationMixin<CourseAttributes, CourseInstance>;
+  createCourse: Sequelize.HasManyCreateAssociationMixin<CourseAttributes>;
   removeCourse: Sequelize.HasManyRemoveAssociationMixin<CourseInstance, number>;
   hasCourse: Sequelize.HasManyHasAssociationMixin<CourseInstance, number>;
   hasCourses: Sequelize.HasManyHasAssociationsMixin<CourseInstance, number>;

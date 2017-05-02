@@ -2,6 +2,8 @@ import Context from './context';
 
 const dbContext = new Context();
 
-dbContext.db.sync({ force: process.env.DB_SYNC === 'true' ? true : false })
+if (process.env.DB_SYNC === 'true') {
+  dbContext.db.sync({ force: true });
+}
 
 export default dbContext;
