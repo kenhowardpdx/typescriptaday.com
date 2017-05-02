@@ -5,3 +5,5 @@ export * from './user.model';
 export * from './course.model.d';
 export * from './course.model';
 export * from './user-course.model';
+export * from './lesson.model.d';
+export * from './lesson.model';

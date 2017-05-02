@@ -26,3 +26,7 @@ export interface UserInstance extends Sequelize.Instance<UserAttributes> {
   setPassword(password: string): Promise<UserInstance>;
   validPassword(password: string): boolean;
 }
+
+export interface UserModel extends Sequelize.Model<UserInstance, UserAttributes> {
+  // put class methods here
+}

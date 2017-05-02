@@ -18,3 +18,7 @@ export interface CourseInstance extends Sequelize.Instance<CourseAttributes> {
     hasUsers: Sequelize.HasManyHasAssociationsMixin<UserInstance, number>;
     countUsers: Sequelize.HasManyCountAssociationsMixin;
 }
+
+export interface CourseModel extends Sequelize.Model<CourseInstance, CourseAttributes> {
+  // put class methods here
+}

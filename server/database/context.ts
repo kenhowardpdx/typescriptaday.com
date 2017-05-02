@@ -41,7 +41,8 @@ export default class Context {
   db: Sequelize.Sequelize;
 
   AuthToken: Models.AuthTokenModel;
-  User: Sequelize.Model<Models.UserInstance, Models.UserAttributes>;
-  Course: Sequelize.Model<Models.CourseInstance, Models.CourseAttributes>;
+  User: Models.UserModel;
+  Course: Models.CourseModel;
   UserCourse: Sequelize.Model<any, any>;
+  Lesson: Models.LessonModel;
 }
