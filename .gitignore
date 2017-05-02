@@ -122,6 +122,5 @@ $RECYCLE.BIN/
 
 server/**/*.js*
 !server/**/*.json
-!server/migrations/*.js
 
 server/public/dashboard
