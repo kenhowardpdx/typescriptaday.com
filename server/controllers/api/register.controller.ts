@@ -3,7 +3,7 @@ import { controller, get, post, validate, config } from 'hapi-decorators';
 import * as Joi from 'joi';
 import * as jwt from 'jsonwebtoken';
 import { BaseApiController } from './base.controller';
-import _dbContext from '../../database';
+import { dbContext } from '../../database';
 import { UserInstance, AuthTokenInstance } from '../../models';
 import { sendMail } from '../../services/mailer';
 import { TokenType } from '../../enums';
@@ -33,9 +33,9 @@ export class RegisterApiController extends BaseApiController {
     const urlBase = `${process.env.BASE_URL}/api/register?token=`;
 
     try {
-      user = await _dbContext.User.create({ Email: email, FirstName: firstName, LastName: lastName, Password: password });
-      token = _dbContext.AuthToken.generateToken();
-      authToken = await _dbContext.AuthToken.create({ Token: token, TokenType: TokenType[TokenType.Registration] });
+      user = await dbContext.models.User.create({ Email: email, FirstName: firstName, LastName: lastName, Password: password });
+      token = dbContext.models.AuthToken.generateToken();
+      authToken = await dbContext.models.AuthToken.create({ Token: token, TokenType: TokenType[TokenType.Registration] });
 
       // set the user
       await authToken.setUser(user);
@@ -84,7 +84,7 @@ export class RegisterApiController extends BaseApiController {
     let authToken: AuthTokenInstance;
 
     try {
-      authToken = await _dbContext.AuthToken.findOne({
+      authToken = await dbContext.models.AuthToken.findOne({
         where: {
           Token: token,
           TokenType: TokenType[TokenType.Registration],

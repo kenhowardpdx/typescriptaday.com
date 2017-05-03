@@ -1,4 +1,5 @@
 import * as Sequelize from 'sequelize';
+import { DbContext } from './context.d';
 import * as Models from '../models';
 
 interface ModelDefinition {
@@ -8,41 +9,39 @@ interface ModelDefinition {
   associate: (model: Sequelize.Model<any, any>, db: Sequelize.Sequelize) => void;
 }
 
-export default class Context {
-  constructor() {
-    this.db = new Sequelize(
-      process.env.DB_DATABASE,
-      process.env.DB_USER,
-      process.env.DB_PASSWORD,
-      {
-        host: process.env.DB_HOST,
-        dialect: process.env.DB_DIALECT,
-        port: process.env.DB_PORT
-      });
-      
-    /**
-     * Define Models
-     */
-    for (let modelKey in Models) {
-      let model: ModelDefinition = Models[modelKey];
-      this[model.name] = this.db.define(model.name, model.attributes, model.options);
-    }
+export const dbContext = <DbContext>new Sequelize(
+  process.env.DB_DATABASE,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
+  {
+    host: process.env.DB_HOST,
+    dialect: process.env.DB_DIALECT,
+    port: process.env.DB_PORT
+  });
 
-    /**
-     * Apply Associations
-     * All Models Must Have Been Defined 
-     */
-    for (let modelKey in Models) {
-      let model: ModelDefinition = Models[modelKey];
-      model.associate(this[model.name], this.db);
-    }
+export function ready(): Promise<any> {
+  if (process.env.DB_SYNC === 'true') {
+    return dbContext.drop().then(() => {
+      let queryInterface = dbContext.getQueryInterface();
+      return queryInterface.dropTable('SequelizeMeta');
+    });
   }
+  return Promise.resolve();
+}
 
-  db: Sequelize.Sequelize;
+/**
+ * Define Models
+ */
+for (let modelKey in Models) {
+  let model: ModelDefinition = Models[modelKey];
+  dbContext.define(model.name, model.attributes, model.options);
+}
 
-  AuthToken: Models.AuthTokenModel;
-  User: Models.UserModel;
-  Course: Models.CourseModel;
-  UserCourse: Sequelize.Model<any, any>;
-  Lesson: Models.LessonModel;
+/**
+ * Apply Associations
+ * All Models Must Have Been Defined
+ */
+for (let modelKey in Models) {
+  let model: ModelDefinition = Models[modelKey];
+  model.associate(dbContext.models[model.name], dbContext);
 }

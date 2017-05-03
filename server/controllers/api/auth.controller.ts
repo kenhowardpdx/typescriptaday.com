@@ -3,7 +3,7 @@ import { controller, post, validate } from 'hapi-decorators';
 import * as Joi from 'joi';
 import * as jwt from 'jsonwebtoken';
 import { BaseApiController } from './base.controller';
-import _dbContext from '../../database';
+import { dbContext } from '../../database';
 import { UserInstance } from '../../models';
 
 @controller('/auth')
@@ -27,7 +27,7 @@ export class AuthApiController extends BaseApiController {
     let subject: { email: string; name: string; };
 
     try {
-      user = await _dbContext.User.scope(['defaultScope', 'private']).findOne({ where: { Email: email } });
+      user = await dbContext.models.User.scope(['defaultScope', 'private']).findOne({ where: { Email: email } });
 
       if (user && user.validPassword(password)) {
 
@@ -45,7 +45,7 @@ export class AuthApiController extends BaseApiController {
       } else {
 
         reply(this.errorResponse.unauthorized());
-        
+
       }
 
     } catch (error) {
