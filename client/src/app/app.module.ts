@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { HelpComponent } from './help/help.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NavComponent } from './nav/nav.component';
+import { AuthGuard } from './services';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { NavComponent } from './nav/nav.component';
     FlexLayoutModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

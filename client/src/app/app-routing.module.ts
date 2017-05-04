@@ -4,10 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { HelpComponent } from './help/help.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+import { AuthGuard } from './services';
+
 const routes: Routes = [
   {
     path: '',
-    children: []
+    children: [],
+    canActivate: [AuthGuard]
   },
   {
     path: 'help',
