@@ -12,12 +12,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HelpComponent } from './help/help.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelpComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
