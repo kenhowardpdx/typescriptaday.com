@@ -5,6 +5,7 @@ import { HelpComponent } from './help/help.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { AuthGuard } from './services';
+import { LoginComponent } from "app/login/login.component";
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'help',
     component: HelpComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '**',
