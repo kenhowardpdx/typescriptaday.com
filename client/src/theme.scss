@@ -22,3 +22,11 @@ $tsaday-app-theme: mat-light-theme($tsaday-app-primary, $tsaday-app-accent, $tsa
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($tsaday-app-theme);
+
+body {
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
