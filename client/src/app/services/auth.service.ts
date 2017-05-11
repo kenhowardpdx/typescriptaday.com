@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class AuthService {
 
-  constructor() { }
+  constructor(private _http: Http) { }
 
   isLoggedIn: boolean =  false;
 
   redirectUrl: string;
 
-  login() {
-
+  login({ email, password }) {
+    return this._http.post('/api/auth', { email, password }).toPromise();
   }
 
   logout() {

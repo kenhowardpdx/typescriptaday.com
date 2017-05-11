@@ -1,18 +1,24 @@
-
-<div fxLayout="column">
+<form [formGroup]="form" fxLayout="column" (ngSubmit)="onSubmit()" novalidate>
 
   <h2>Sign in to TypeScript A Day</h2>
 
   <md-input-container>
-    <input mdInput placeholder="Email Address">
+    <input mdInput placeholder="Email Address" formControlName="Email">
   </md-input-container>
+  <div *ngIf="loginFormErrors.Email" class="alert alert-warn">
+    <span [innerHtml]="loginFormErrors.Email"></span>
+  </div>
 
   <md-input-container>
-    <input mdInput type="password" placeholder="Password">
+    <input mdInput type="password" placeholder="Password" formControlName="Password">
   </md-input-container>
+  <div *ngIf="loginFormErrors.Password" class="alert alert-warn">
+    <span [innerHtml]="loginFormErrors.Password"></span>
+  </div>
 
   <button md-button><md-icon>lock_outline</md-icon> Login</button>
-</div>
+
+</form>
 
 
 
