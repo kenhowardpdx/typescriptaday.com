@@ -16,9 +16,9 @@
   version "1.4.30"
   resolved "https://registry.yarnpkg.com/@types/confidence/-/confidence-1.4.30.tgz#031690491e443d0c6795842235221ad993b33629"
 
-"@types/dotenv@^2.0.20":
-  version "2.0.20"
-  resolved "https://registry.yarnpkg.com/@types/dotenv/-/dotenv-2.0.20.tgz#79ca51c9594cc889cc8a72427ea8db4ddfd32929"
+"@types/dotenv@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@types/dotenv/-/dotenv-4.0.0.tgz#bd458844cb82ada047fa87a475270ad55492d2d4"
   dependencies:
     "@types/node" "*"
 
@@ -28,9 +28,9 @@
   dependencies:
     "@types/hapi" "*"
 
-"@types/hapi@*", "@types/hapi@^16.0.3":
-  version "16.0.3"
-  resolved "https://registry.yarnpkg.com/@types/hapi/-/hapi-16.0.3.tgz#db472bfe9ebee1c91bd36e61f2dba9b3ebc16ffa"
+"@types/hapi@*", "@types/hapi@^16.0.6":
+  version "16.0.6"
+  resolved "https://registry.yarnpkg.com/@types/hapi/-/hapi-16.0.6.tgz#bb7d15db979b43e132c6d8f5acf21581514a3819"
   dependencies:
     "@types/node" "*"
 
@@ -40,9 +40,9 @@
   dependencies:
     "@types/hapi" "*"
 
-"@types/joi@^10.3.0":
-  version "10.3.0"
-  resolved "https://registry.yarnpkg.com/@types/joi/-/joi-10.3.0.tgz#a928df18a2d00e9dc47471af62953ffd88d64f63"
+"@types/joi@^10.3.2":
+  version "10.3.2"
+  resolved "https://registry.yarnpkg.com/@types/joi/-/joi-10.3.2.tgz#bc4ce6577c294710663d347ebe59087f375075a5"
 
 "@types/jsonwebtoken@^7.2.0":
   version "7.2.0"
@@ -54,9 +54,13 @@
   version "4.14.63"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.63.tgz#5ac475f55bfdc62bc88c4239dbc482f2f3bead93"
 
-"@types/node@*", "@types/node@^7.0.13":
+"@types/node@*":
   version "7.0.13"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.13.tgz#1b0a53fe9ef9c3a5d061b126cc9b915bca43a3f5"
+
+"@types/node@^7.0.18":
+  version "7.0.18"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.18.tgz#cd67f27d3dc0cfb746f0bdd5e086c4c5d55be173"
 
 "@types/nodemailer-direct-transport@*":
   version "1.0.29"
@@ -80,17 +84,9 @@
     "@types/nodemailer-direct-transport" "*"
     "@types/nodemailer-smtp-transport" "*"
 
-"@types/sequelize@*":
-  version "4.0.51"
-  resolved "https://registry.yarnpkg.com/@types/sequelize/-/sequelize-4.0.51.tgz#5d1223ce42e24841e39705c08824a9b296b8e823"
-  dependencies:
-    "@types/bluebird" "*"
-    "@types/lodash" "*"
-    "@types/validator" "*"
-
-"@types/sequelize@~3.4.45":
-  version "3.4.45"
-  resolved "https://registry.yarnpkg.com/@types/sequelize/-/sequelize-3.4.45.tgz#1f590fc0636e7297cbcd248d66007b3171ad5ecc"
+"@types/sequelize@*", "@types/sequelize@~3.4.48":
+  version "3.4.48"
+  resolved "https://registry.yarnpkg.com/@types/sequelize/-/sequelize-3.4.48.tgz#f88fac7cc4717d2e87f20f69ebb64aa869e7e4d1"
   dependencies:
     "@types/bluebird" "*"
     "@types/lodash" "*"
@@ -107,9 +103,9 @@
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/@types/validator/-/validator-6.2.0.tgz#020322fe1929f69889eb675a1bdb5a98394b71f0"
 
-"@types/winston@^2.3.1":
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@types/winston/-/winston-2.3.1.tgz#7182341cc8917e349c9629f4b12abbdaa132839f"
+"@types/winston@^2.3.2":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@types/winston/-/winston-2.3.2.tgz#c162547cb47c0b8a450e681bb9fa7041cd80edfa"
   dependencies:
     "@types/node" "*"
 
@@ -244,6 +240,13 @@ aws4@^1.2.1:
 b64@3.x.x:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/b64/-/b64-3.0.2.tgz#7a9d60466adf7b8de114cbdf651a5fdfcc90894d"
+
+babel-runtime@^6.23.0:
+  version "6.23.0"
+  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.23.0.tgz#0a9489f144de70efb3ce4300accdb329e2fc543b"
+  dependencies:
+    core-js "^2.4.0"
+    regenerator-runtime "^0.10.0"
 
 balanced-match@^0.4.1:
   version "0.4.2"
@@ -464,6 +467,10 @@ content@3.x.x:
 cookie@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
+
+core-js@^2.4.0:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.4.1.tgz#4de911e667b0eae9124e34254b53aea6fc618d3e"
 
 core-util-is@~1.0.0:
   version "1.0.2"
@@ -817,9 +824,9 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
-handlebars@^4.0.6:
-  version "4.0.6"
-  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.0.6.tgz#2ce4484850537f9c97a8026d5399b935c4ed4ed7"
+handlebars@^4.0.8:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.0.8.tgz#22b875cd3f0e6cbea30314f144e82bc7a72ff420"
   dependencies:
     async "^1.4.0"
     optimist "^0.6.1"
@@ -1148,9 +1155,9 @@ jsonify@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
 
-jsonwebtoken@^7.1.9, jsonwebtoken@^7.3.0:
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/jsonwebtoken/-/jsonwebtoken-7.3.0.tgz#85118d6a70e3fccdf14389f4e7a1c3f9c8a9fbba"
+jsonwebtoken@^7.1.9, jsonwebtoken@^7.4.0:
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/jsonwebtoken/-/jsonwebtoken-7.4.0.tgz#515bf2bba070ec615bad97fd2e945027eb476946"
   dependencies:
     joi "^6.10.1"
     jws "^3.1.4"
@@ -1410,17 +1417,13 @@ minimatch@^3.0.0, minimatch@^3.0.2:
   dependencies:
     brace-expansion "^1.0.0"
 
-minimist@0.0.8:
+minimist@0.0.8, minimist@~0.0.1:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
 
 minimist@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
-
-minimist@~0.0.1:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.10.tgz#de3f98543dbf96082be48ad1a0c7cda836301dcf"
 
 "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1:
   version "0.5.1"
@@ -1434,7 +1437,7 @@ moment-timezone@^0.5.4:
   dependencies:
     moment ">= 2.9.0"
 
-moment@2.x.x, "moment@>= 2.9.0", moment@^2.13.0, moment@^2.16.0, moment@^2.18.1:
+moment@2.x.x, "moment@>= 2.9.0", moment@^2.13.0, moment@^2.18.1:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
 
@@ -1850,9 +1853,9 @@ readdirp@^2.0.0:
     readable-stream "^2.0.2"
     set-immediate-shim "^1.0.1"
 
-redefine@^0.2.0:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/redefine/-/redefine-0.2.1.tgz#e89ee7a6f24d19fff62590569332dc60380a89a3"
+regenerator-runtime@^0.10.0:
+  version "0.10.5"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.10.5.tgz#336c3efc1220adcedda2c9fab67b5a7955a33658"
 
 regex-cache@^0.4.2:
   version "0.4.3"
@@ -2235,9 +2238,9 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
 
-typescript@^2.2.2:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.3.0.tgz#2e63e09284392bc8158a2444c33e2093795c0418"
+typescript@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.3.2.tgz#f0f045e196f69a72f06b25fd3bd39d01c3ce9984"
 
 uglify-js@^2.6:
   version "2.8.22"
@@ -2256,14 +2259,13 @@ uid-number@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
 
-umzug@^1.12.0:
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/umzug/-/umzug-1.12.0.tgz#a79c91f2862eee3130c6c347f2b90ad68a66e8b8"
+umzug@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/umzug/-/umzug-2.0.1.tgz#dbdc47f45923885622966814c03693c169da46e7"
   dependencies:
+    babel-runtime "^6.23.0"
     bluebird "^3.4.1"
     lodash "^4.17.0"
-    moment "^2.16.0"
-    redefine "^0.2.0"
     resolve "^1.0.0"
 
 undefsafe@0.0.3:
